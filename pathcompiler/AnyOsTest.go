@@ -1,0 +1,38 @@
+package pathcompiler
+
+import "gitlab.com/evatix-go/pathhelper/pathsconst"
+
+var AnyOsTest = Specific{
+	Name:                     "AnyOs Test",
+	Description:              "all os test paths",
+	Url:                      "",
+	ReplacerMap:              nil,
+	SpecificPathFileLocation: TempAppTestRoot + DefaultSuffix.SpecificPathFileLocation,
+	VarAppRoot:               TempAppTestRoot,
+	EtcAppRoot:               TempAppTestRoot + "/etc/",
+	EtcAppConfigRoot:         TempAppTestRoot + "/etc/config",
+	AppDbRoot:                TempAppTestRoot + DefaultSuffix.AppDbRoot,
+	TempRoot:                 TempAppTestRoot + pathsconst.UnixTemp,
+	UserTempRoot:             TempAppTestRoot + pathsconst.UnixTemp + DefaultSuffix.UserTempRoot,
+	CacheTempRoot:            TempAppTestRoot + pathsconst.UnixTemp + DefaultSuffix.CacheTempRoot,
+	InstructionTempRoot:      TempAppTestRoot + pathsconst.UnixTemp + DefaultSuffix.InstructionTempRoot,
+	MigrationCacheRoot:       TempAppTestRoot + pathsconst.UnixTemp + DefaultSuffix.MigrationCacheRoot,
+	PackageTempRoot:          TempAppTestRoot + pathsconst.UnixTemp + DefaultSuffix.PackageTempRoot,
+	LogAppRoot:               TempAppTestRoot + pathsconst.VarLog,
+	VarCacheRoot:             TempAppTestRoot + pathsconst.VarOpt + DefaultSuffix.VarCacheRoot,
+	DownloadsRoot:            TempAppTestRoot + pathsconst.VarOpt + DefaultSuffix.DownloadsRoot,
+	ScriptsRoot:              TempAppTestRoot + DefaultSuffix.ScriptsRoot,
+	DecompressRoot:           TempAppTestRoot + DefaultSuffix.DecompressRoot,
+	PackagesRoot:             TempAppTestRoot + DefaultSuffix.PackagesRoot,
+	PackagesDownloadRoot:     TempAppTestRoot + DefaultSuffix.PackagesDownloadRoot,
+	DefaultInstructionsRoot:  TempAppTestRoot + DefaultSuffix.DefaultInstructionsRoot,
+	DefaultEnvRoot:           TempAppTestRoot + DefaultSuffix.DefaultEnvRoot,
+	DefaultEnvPathRoot:       TempAppTestRoot + DefaultSuffix.DefaultEnvPathRoot,
+	BackupRoot:               TempAppTestRoot + DefaultSuffix.BackupRoot,
+	ArchiveRoot:              TempAppTestRoot + DefaultSuffix.ArchiveRoot,
+	ZipsRoot:                 TempAppTestRoot + DefaultSuffix.ZipsRoot,
+	DefaultConfigFilePath:    TempAppTestRoot + DefaultSuffix.DefaultConfigFilePath,
+	SnapshotsRoot:            TempAppTestRoot + "/all" + DefaultSuffix.SnapshotsRoot,
+	PublicRoot:               TempAppTestRoot + "/var/" + DefaultSuffix.PublicRoot,
+	SslRoot:                  TempAppTestRoot + "/all" + DefaultSuffix.SslRoot,
+}

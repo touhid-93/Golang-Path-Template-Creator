@@ -1,0 +1,88 @@
+package tests_isstr
+
+var startsWithWrappersCases = []searchWithWrapper{
+	{
+		baseDir:      "",
+		search:       "",
+		isIgnoreCase: false,
+		Expectation:  true,
+		funcName:     startsWith,
+	},
+	{
+		baseDir:      "something",
+		search:       "",
+		isIgnoreCase: false,
+		Expectation:  true,
+		funcName:     startsWith,
+	},
+	{
+		baseDir:      "",
+		search:       "something",
+		isIgnoreCase: false,
+		Expectation:  false,
+		funcName:     startsWith,
+	},
+	{
+		baseDir:      "w2",
+		search:       "w2",
+		isIgnoreCase: false,
+		Expectation:  true,
+		funcName:     startsWith,
+	},
+	{
+		baseDir:      "w2",
+		search:       "W2",
+		isIgnoreCase: true,
+		Expectation:  true,
+		funcName:     startsWith,
+	},
+	{
+		baseDir:      "w2",
+		search:       "W2",
+		isIgnoreCase: false,
+		Expectation:  false,
+		funcName:     startsWith,
+	},
+	{
+		baseDir:      "..........xw2",
+		search:       "w2",
+		isIgnoreCase: false,
+		Expectation:  false,
+		funcName:     startsWith,
+	},
+	{
+		baseDir:      "somethingStart..........xw2",
+		search:       "somethingStart",
+		isIgnoreCase: false,
+		Expectation:  true,
+		funcName:     startsWith,
+	},
+	{
+		baseDir:      "something-Start..........xw2",
+		search:       "something-start",
+		isIgnoreCase: true,
+		Expectation:  true,
+		funcName:     startsWith,
+	},
+	{
+		baseDir:      "something-Start..........xw2-something-ends-with",
+		search:       "2-something-ends-with",
+		isIgnoreCase: false,
+		Expectation:  false,
+		funcName:     startsWith,
+	},
+	{
+		baseDir:      "something-Start..........xw2-something-ends-with",
+		search:       "2-something-Ends-with",
+		isIgnoreCase: false,
+		Expectation:  false,
+		funcName:     startsWith,
+	},
+	{
+		baseDir:      "something-Start..........xw2-something-ends-with",
+		search:       "2-something-Ends-with",
+		isIgnoreCase: true,
+		Expectation:  false,
+		funcName:     startsWith,
+	},
+}

@@ -1,0 +1,5 @@
+package pathfilter
+
+const (
+	ExtensionFilterStart = "*."
+)

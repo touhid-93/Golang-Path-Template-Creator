@@ -1,0 +1,73 @@
+{
+  "CliRunner": {
+    "FilesSelector": [
+      {
+        "Path": "$workdir\\SampleFiles\\From",
+        "Filters": [
+          "FolderInside",
+          "FolderSkip"
+        ],
+        "SkipFilters": [
+          "FolderSkip"
+        ],
+        "Extensions": [
+          "txt"
+        ],
+        "Processors": [
+          "Collector",
+          "Analyzer",
+          "Analyzer"
+        ],
+        "Attributes": {
+          "IsRecursive": false,
+          "IsCache": false,
+          "IsRedis": false,
+          "IsWriteToFiles": false,
+          "CacheFilePath": "$workdir\\temp\\cache.json",
+          "CachesRefresh": {
+            "Duration": {
+              "Value": 2,
+              "Quantifier": "mins"
+            }
+          }
+        }
+      }
+    ],
+    "Processors": [
+      {
+        "Name": "Collector",
+        "IsEnabled": true,
+        "IsRunAsync": true,
+        "ProcessorPath": null,
+        "Exe": "$workdir/binaries/Collector",
+        "Args": null
+      },
+      {
+        "Name": "Analyzer",
+        "IsEnabled": true,
+        "IsRunAsync": true,
+        "ProcessorPath": null,
+        "Exe": "$workdir/binaries/Analyzer",
+        "Args": [
+          "--config=\"$workdir/configs/analyzer.json\"",
+          "--wordir=\"$workdir\"",
+          "--filesPaths=\"$collectorFilePath\""
+        ]
+      },
+      {
+        "Name": "CodeGenerator",
+        "IsEnabled": true,
+        "IsRunAsync": true,
+        "ProcessorPath": null,
+        "Exe": "$workdir/binaries/CodeGenerator",
+        "Args": [
+          "--config=\"$workdir/configs/CodeGenerator.json\"",
+          "--wordir=\"$workdir\"",
+          "--filesPaths=\"$collectorFilePath\""
+        ]
+      }
+    ],
+    "Notes": {
+    }
+  }
+}
